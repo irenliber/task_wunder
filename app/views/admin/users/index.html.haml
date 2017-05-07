@@ -1,0 +1,26 @@
+.container
+  = link_to new_admin_user_path do
+    %button.btn.btn-primary
+      %span.glyphicon.glyphicon-plus
+      Add new user
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Fullname
+        %th Email
+        %th Birth date
+        %th actions
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.full_name
+          %td= user.email
+          %td= user.birth_date.strftime("%Y-%m-%d")
+          %td
+            = link_to admin_user_path(user) do
+              %span.glyphicon.glyphicon-eye-open
+            = link_to edit_admin_user_path(user) do
+              %span.glyphicon.glyphicon-pencil
+            = link_to admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"} do
+              %span.glyphicon.glyphicon-trash
