@@ -1,0 +1,20 @@
+.errors
+
+= form_with(model: @user, url: admin_users_path,  method: :post, multipart: true) do |f|
+  .form-group
+    = f.label :full_name
+    = f.text_field :full_name, class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+  .form-group
+    = f.label :password
+    = f.text_field :password, class: 'form-control'
+  .form-group
+    = f.label :birth_date
+    = f.text_field :birth_date, class: 'form-control'
+  .form-group
+    = f.label :biography
+    = f.text_field :biography, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-default'

@@ -1,0 +1,9 @@
+.row.panel.panel-default
+  .col-md-4
+    image will be here
+
+  .col-md-8
+    %h3= @user.full_name
+    %p= @user.birth_date.strftime("%Y-%m-%d")
+    %p= @user.email
+    %p= @user.biography

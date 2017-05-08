@@ -1,0 +1,4 @@
+.errors
+  %H1 Validation errors:
+  .alert.alert-danger
+    %p= @user.errors.full_messages.to_sentence
