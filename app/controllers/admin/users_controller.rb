@@ -1,5 +1,8 @@
 module Admin
   class UsersController < ApplicationController
+
+    before_action :protect_admin_panel
+
     def index
       @users = User.without_role(:admin).order(created_at: :desc)
     end
@@ -26,6 +29,9 @@ module Admin
 
     def update
       @user = User.find(params[:id])
+      if @user.update(user_params)
+        redirect_to admin_user_path
+      end
     end
 
     def destroy
@@ -38,8 +44,19 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:full_name, :email, :password, :birth_date, :biography)
+      params.require(:user).permit(:full_name, :email, :password, :birth_date, :biography, :avatar)
     end
+
+    def protect_admin_panel
+      if user_signed_in?
+        unless current_user.has_role?(:admin)
+          redirect_to root_path
+        end
+      else
+        redirect_to root_path
+      end
+    end
+
   end
 end
 

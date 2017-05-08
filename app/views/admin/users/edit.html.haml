@@ -1,6 +1,6 @@
 .errors
 
-= form_with(model: @user, url: admin_users_path,  method: :post, multipart: true) do |f|
+= form_with(model: @user, url: admin_user_path(@user),  method: :put, multipart: true) do |f|
   .form-group
     = f.label :full_name
     = f.text_field :full_name, class: 'form-control'
@@ -12,6 +12,13 @@
     = f.text_field :birth_date, class: 'form-control'
   .form-group
     = f.label :biography
-    = f.text_field :biography, class: 'form-control'
+    = f.text_area :biography, class: 'form-control'
+  .form-group
+    = f.label :avatar
+    = f.file_field :avatar, class: 'form-control'
 
-  = f.submit 'Update', class: 'btn btn-default'
+  = f.submit 'Update', class: 'btn btn-primary'
+
+  = link_to admin_users_path do
+    %button.btn.btn-default
+      Cancel

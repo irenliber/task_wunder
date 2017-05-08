@@ -15,6 +15,12 @@
     = f.text_field :birth_date, class: 'form-control'
   .form-group
     = f.label :biography
-    = f.text_field :biography, class: 'form-control'
+    = f.text_area :biography, class: 'form-control'
+  .form-group
+    = f.label :avatar
+    = f.file_field :avatar, class: 'form-control'
 
-  = f.submit 'Save', class: 'btn btn-default'
+  = f.submit 'Save', class: 'btn btn-primary'
+  = link_to admin_users_path do
+    %button.btn.btn-default
+      Cancel

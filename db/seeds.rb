@@ -36,8 +36,18 @@ users = [
         full_name: 'Remus Lupin',
         birth_date: (Time.now - 20.years),
         biography: 'I am a very very very nice person'
+    },
+    {
+        email: 'admin@example.com',
+        password: 'adminpassword',
+        full_name: 'Admin',
+        birth_date: (Time.now - 20.years),
+        biography: 'I am a very very very nice person'
     }
 ]
+
 users.each do |user|
   User.create(user)
 end
+
+User.last.add_role :admin
