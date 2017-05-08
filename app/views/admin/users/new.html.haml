@@ -12,7 +12,7 @@
     = f.text_field :password, class: 'form-control'
   .form-group
     = f.label :birth_date
-    = f.text_field :birth_date, class: 'form-control'
+    = f.text_field :birth_date, id: "datepicker", class: 'form-control'
   .form-group
     = f.label :biography
     = f.text_area :biography, class: 'form-control'
@@ -24,3 +24,8 @@
   = link_to admin_users_path do
     %button.btn.btn-default
       Cancel
+
+:javascript
+  $('#datepicker').datepicker({
+    format: "dd-mm-yyyy"
+  });
