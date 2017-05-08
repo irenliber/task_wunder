@@ -43,6 +43,8 @@ gem "strip_attributes"
 gem 'email_validator'
 gem 'paperclip', '~> 5.1'
 gem 'bootstrap-datepicker-rails'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

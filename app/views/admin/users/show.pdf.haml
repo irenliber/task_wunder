@@ -1,0 +1,10 @@
+.row
+  %h1.text-center User info
+  %br
+  .container
+    = wicked_pdf_image_tag(@user.avatar.url(:medium))
+
+    %h1= @user.full_name
+    %p= @user.birth_date.strftime("%d-%m-%Y")
+    %p= @user.email
+    %p= @user.biography

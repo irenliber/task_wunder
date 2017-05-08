@@ -9,6 +9,13 @@ module Admin
 
     def show
       @user = User.find(params[:id])
+
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: "user_info", :layout => 'pdf.html.haml'
+        end
+      end
     end
 
     def new
