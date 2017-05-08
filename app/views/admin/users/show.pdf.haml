@@ -4,7 +4,7 @@
   .container
     = wicked_pdf_image_tag(@user.avatar.url(:medium))
 
-    %h1= @user.full_name
-    %p= @user.birth_date.strftime("%d-%m-%Y")
-    %p= @user.email
-    %p= @user.biography
+    %h2= @user.full_name
+    %p= "Birth date: #{@user.birth_date.strftime("%d-%m-%Y")}"
+    %p= "Email: #{@user.email}"
+    %p= "Biography: #{@user.biography}"

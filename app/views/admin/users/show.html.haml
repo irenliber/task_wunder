@@ -22,7 +22,7 @@
         %button.btn.btn-info
           %span.glyphicon.glyphicon-file
           Print PDF
-      = link_to admin_user_path(@user, format: :pdf) do
+      = link_to send_pdf_admin_user_path(@user) do
         %button.btn.btn-warning
           %span.glyphicon.glyphicon-envelope
           Send on email

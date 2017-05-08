@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resources :users
+    resources :users do
+      member do
+        get :send_pdf
+      end
+    end
   end
 end

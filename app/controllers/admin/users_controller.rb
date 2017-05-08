@@ -48,6 +48,12 @@ module Admin
       redirect_to admin_users_path
     end
 
+    def send_pdf
+      user = User.find(params[:id])
+      UserInfoMailer.pdf(user).deliver_now
+      redirect_to admin_users_path
+    end
+
     private
 
     def user_params
