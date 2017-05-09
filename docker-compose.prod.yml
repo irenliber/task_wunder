@@ -1,0 +1,25 @@
+version: "2"
+
+volumes:
+  db: {}
+
+services:
+  db:
+    image: postgres
+    env_file: .env
+    volumes:
+      - db:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    env_file: .env
+    environment:
+      RAILS_ENV: production
+    ports:
+      - "3003:3003"
+    depends_on:
+      - db
+    restart: unless-stopped
