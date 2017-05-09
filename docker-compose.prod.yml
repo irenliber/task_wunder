@@ -2,6 +2,7 @@ version: "2"
 
 volumes:
   db: {}
+  files_prod: {}
 
 services:
   db:
@@ -22,4 +23,6 @@ services:
       - "3003:3003"
     depends_on:
       - db
+    volumes:
+      - files_prod:/usr/src/app/public/system
     restart: unless-stopped
